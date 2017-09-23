@@ -40,3 +40,5 @@ function largest(){
     }
   }
 }
+
+console.log(largest())
