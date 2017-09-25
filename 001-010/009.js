@@ -6,34 +6,15 @@
 // Find the product abc.
 
 function problem009() {
-  // a + b + c = 1000
-  // that means that
-  // c = 1000 - (a + b)
-  // now we can substitute C in a^2 + b^2 = c^2 by c = 1000 - (a + b)
-  // a^2 + b^2 = (1000 - (a + b)) ^ 2
-  // a^2 + b^2 = 1000^2 - 2*1000*(a+b)+(a+b)^2
-  // a^2 + b^2 = 1000^2 - 2000 * a - 2000 * b + a^2 + 2 * a * b + b^2
-  // 0 = 1000^2 - 2000 * a - 2000 * b + 2 * a * b
-  // now we need to find a and b for this equation and check a + b + c = 1000
-
-  // 1000^2 - 2000 * a - 2000 * b + 2 * a * b = 0
-  // 1000^2 - 2000a - 2000b + 2ab = 0
-  // 2ab - 2000a = 2000b - 1000^2
-  // a(2b - 2000) = 2000b - 1000^2
-  // a = (2000b - 1000^2)/2b - 2000
-
-
-  var a = 0;
-  var b = 0;
-  var c = 1;
-  while (a^2 + b^2 !== c^2){
-    a = (2000 * b - 1000^2)/(2 * b - 2000)
-    c = 1000 - a - b;
-    b++
+  for (let a = 1; a < 1000; a++) {
+    for (let b = a; b < 1000 - a; b++) {
+      var c = 1000 - a - b
+      if (a * a + b * b === c * c) {
+        return a * b * c
+      }
+    }
   }
-  return {"a": a, "b": b, "c": c}
-
 }
 
 console.log(problem009());
-// The pythagorean triple is 375, 200, 425, and the sum is 1000
+// Triplet is: 375, 200, 425
